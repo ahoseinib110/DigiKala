@@ -11,5 +11,5 @@ import retrofit2.http.QueryMap;
 
 public interface MaktabService {
     @GET(".")
-    Call<List<Product>> listItems(@QueryMap Map<String, String> options);
+    Call<List<Product>> listProductItems(@QueryMap Map<String, String> options);
 }

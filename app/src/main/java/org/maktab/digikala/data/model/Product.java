@@ -1,8 +1,11 @@
 package org.maktab.digikala.data.model;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class Product {
+public class Product implements Serializable {
 private int mId;
 private String mName;
 private String  mPrice;

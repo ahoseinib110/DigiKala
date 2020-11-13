@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import org.maktab.digikala.R;
+import org.maktab.digikala.data.model.Orderby;
 import org.maktab.digikala.data.model.Product;
 import org.maktab.digikala.databinding.ListItemProductBinding;
 import org.maktab.digikala.viewModel.HomePageViewModel;
@@ -22,9 +23,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
 
     private static final String TAG = "bashir";
     private HomePageViewModel mViewModel;
+    private Orderby mOrderby;
 
-    public ProductAdapter(HomePageViewModel viewModel) {
+    public ProductAdapter(HomePageViewModel viewModel, Orderby orderby) {
         mViewModel = viewModel;
+        mOrderby = orderby;
     }
 
     @NonNull
@@ -44,7 +47,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
 
     @Override
     public int getItemCount() {
-        return mViewModel.getItems().size();
+        return mViewModel.getItems(mOrderby).size();
     }
 
 
@@ -54,17 +57,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
             super(listItemProductBinding.getRoot());
             mListItemProductBinding = listItemProductBinding;
             mListItemProductBinding.setViewModel(mViewModel);
+            mListItemProductBinding.setOrderBy(mOrderby);
         }
 
         public void bindProduct(int position){
             mListItemProductBinding.setPosition(position);
-            Log.d(TAG,"url: " +mViewModel.getItems().get(position).getImagesUrl().get(0));
+            Log.d(TAG,"url: " +mViewModel.getItems(mOrderby).get(position).getImagesUrl().get(0));
             Picasso.get()
-                    .load(mViewModel.getItems().get(position).getImagesUrl().get(0))
+                    .load(mViewModel.getItems(mOrderby).get(position).getImagesUrl().get(0))
                     .into(mListItemProductBinding.imageView);
-
-
-
             //                    .placeholder(R.mipmap.ic_android)
         }
     }

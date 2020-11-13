@@ -9,11 +9,16 @@
         <variable
             name="position"
             type="Integer" />
+        <variable
+            name="order_by"
+            type="org.maktab.digikala.data.model.Orderby" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:id="@+id/constraintItemProduct"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:onClick="@{() -> viewModel.onItemClicked(viewModel.getItems(order_by).get(position))}">
 
         <ImageView
             android:id="@+id/imageView"
@@ -35,7 +40,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:gravity="center_horizontal"
-            android:text="@{viewModel.items.get(position).name}"
+            android:text="@{viewModel.getItems(order_by).get(position).name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />

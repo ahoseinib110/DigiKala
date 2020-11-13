@@ -2,7 +2,75 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmentContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.MainActivity" />
+    tools:context=".view.activity.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewLatest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="right"
+                android:text="@string/text_latest_products"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+
+            <FrameLayout
+                android:id="@+id/fragmentLatestContainer"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/textViewMostRated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="right"
+                android:text="@string/text_most_rated_products"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+
+            <FrameLayout
+                android:id="@+id/fragmentMostRatedContainer"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/textViewMostViewed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="right"
+                android:text="@string/text_most_viewed_products"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <FrameLayout
+                android:id="@+id/fragmentMostViewedContainer"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
